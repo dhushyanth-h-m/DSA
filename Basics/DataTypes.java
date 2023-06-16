@@ -47,15 +47,27 @@ public class DataTypes extends AreaCode implements Temperature{ //main class
         
         System.out.println("\nNon-primitive Data types section.");
         System.out.println("City Name: "+city);
-
-
+        
+        
         System.out.println(array);
-
+        
         AreaCode object = new AreaCode();
         object.getAreaCode();
-
+        
         DataTypes object2 = new DataTypes();
         object2.cityTemperature();
+        
+        //Wrapper classes
+        System.out.println("\nWrapper Class section.");
+        Integer number = 51; //object number of type Integer will store value 51 as int
+        System.out.println(number);
+        
+        String stringObject = number.toString(); //converting an integer to a string wrapper class object
+        System.out.println(stringObject.length());
+
+        Float floatObject = Float.valueOf("234.25"); //Use of static valueOf method to create an object
+        System.out.println(floatObject);
+
 
     }
     public void cityTemperature(){
