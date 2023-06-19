@@ -1,5 +1,3 @@
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 public class LinkedLists {
     
     private Node head;
@@ -41,6 +39,10 @@ public class LinkedLists {
         int count = 1;
         Node currentNode = head;
         Node previousNode = head;
+        if(position > length()){
+            System.out.println("Position out of bound.");
+            return;
+        }
         if(position == 1){
             head = head.next;
             return;
@@ -65,19 +67,41 @@ public class LinkedLists {
         System.out.println();
     }
 
+    public int length(){
+        int count = 0;
+        Node currentNode = head;
+        while(currentNode != null){
+            count += 1;
+            currentNode = currentNode.next;
+        }
+        return count;
+    }
+
+    public boolean search(int data){
+        Node currentNode = head;
+
+        if(head == null){
+            return false;
+        }
+        while(currentNode != null){
+            if(currentNode.data == data){
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
     public static void main(String[] args){
         LinkedLists linkedlist = new LinkedLists();
 
         linkedlist.insertAtBeginning(23);
         linkedlist.insertAtEnd(34);
         linkedlist.insertAtBeginning(12);
-
         linkedlist.printList();
-
         linkedlist.deleteNode(2);
-        
         linkedlist.printList();
+        System.out.println(linkedlist.length());
+        System.out.println(linkedlist.search(12));
     }
-
-
 }
