@@ -51,6 +51,13 @@ public class Queue {
         return currentSize;
     }
 
+    public int peek(){
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
+        return queueArray[front];
+    }
+
     public static void main(String[] args){
         Queue queue = new Queue(4);
 
@@ -60,6 +67,7 @@ public class Queue {
         queue.enqueue(952);
 
         System.out.println("Size: "+queue.size());
+        System.out.println("Front: "+queue.peek());
         
         while(!queue.isEmpty()){
             System.out.println(queue.dequeue());
